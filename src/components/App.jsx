@@ -80,7 +80,7 @@ class App extends Component {
   };
 
   onClickBtn = e => {
-    this.setState(prevState => ({ page: (prevState.page += 1) }));
+    this.setState(prevState => ({ page: prevState.page + 1 }));
   };
   closeModal = () => {
     this.setState({ isOpenModal: false });
