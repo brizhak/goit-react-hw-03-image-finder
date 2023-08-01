@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 class ImageGalleryItem extends Component {
   static propTypes = {
     onClickImage: PropTypes.func,
-    href: PropTypes.string,
-    src: PropTypes.string,
-    alt: PropTypes.string,
-    id: PropTypes.number,
+    href: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
   };
   onClick = e => {
     e.preventDefault();
