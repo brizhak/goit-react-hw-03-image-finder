@@ -20,7 +20,13 @@ class App extends Component {
     modalImage: '',
   };
   onSubmit = inputValue => {
-    this.setState({ searchQuery: inputValue, page: 1 });
+    this.setState(prevState => {
+      if (prevState.searchQuery !== inputValue) {
+        return { searchQuery: inputValue, page: 1 };
+      } else {
+        return prevState.searchQuery;
+      }
+    });
   };
 
   async componentDidUpdate(_, prevState) {
@@ -47,10 +53,7 @@ class App extends Component {
       } finally {
         this.setState({ isLoading: false });
       }
-    } else if (
-      this.state.searchQuery === prevState.searchQuery &&
-      this.state.page !== prevState.page
-    ) {
+    } else if (this.state.page !== prevState.page) {
       try {
         const images = await fetchImages(
           this.state.searchQuery,

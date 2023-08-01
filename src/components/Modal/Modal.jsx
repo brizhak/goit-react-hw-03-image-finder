@@ -5,6 +5,8 @@ import PropTypes from 'prop-types';
 class Modal extends Component {
   static propTypes = {
     closeModal: PropTypes.func,
+    src: PropTypes.string,
+    alt: PropTypes.string,
   };
   componentDidMount() {
     window.addEventListener('keydown', this.onCloseModal);
